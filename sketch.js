@@ -11,7 +11,7 @@ var ground, invisibleGround, groundImage;
 var cloudsGroup, cloudImage;
 var obstaclesGroup, obstacle1, obstacle2, obstacle3, obstacle4, obstacle5, obstacle6;
 
-var checkPointSound, jumpSound;
+var checkPointSound, jumpSound, dieSound;
 
 var score;
 
@@ -37,7 +37,8 @@ function preload(){
   restartImg = loadImage("restart.png");
   
   checkPointSound = loadSound("checkPoint.mp3");
-  jumpSound = loadSound("jump.mp3");                          
+  jumpSound = loadSound("jump.mp3");  
+  dieSound = loadSound("die.mp3");
 }
 
 function setup() {
@@ -106,6 +107,7 @@ function draw() {
     if(obstaclesGroup.isTouching(trex)){
       //playSound("jump.mp3");
       gameState = END;
+      dieSound.play();
       //playSound("die.mp3");
     }
   
